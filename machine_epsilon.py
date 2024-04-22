@@ -1,6 +1,6 @@
 epsilon = 1 #イプシロンを1とする
 
-while epsilon + 1 > 1: #最小のイプシロンを求める 
+while 1 + epsilon > 1: #最小のイプシロンを求める 
     epsilon /= 2
 
-print(epsilon)
+print(epsilon * 2)
