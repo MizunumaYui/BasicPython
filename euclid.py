@@ -1,36 +1,32 @@
-#a = int(input("a の値を入力: "))
-#b = int(input("b の値を入力: "))
+import random
 
-#(1)
-a = 10
-b = 20
+#問3
+def euclid(a,b): 
+    
+    while a % b != 0: # a%bが0になるまで繰り返す
+        a, b = b, a%b
+    
+    return(b)
 
-while a % b != 0: #a=bq+rのrが0になるまで繰り返す
-    r = a % b
-    a = b
-    b = r
+#問4
+def prime(a, b):
+   
+    if euclid(a,b) == 1: # aとbの最大公約数が1
+        return True
+    
+    return False
 
-print(b)
+a = int(input("a の値を入力: "))
+b = int(input("b の値を入力: "))
 
-#(2)
-a = 14
-b = 91
+print(euclid(a, b)) # aとbの最大公約数
 
-while a % b != 0:
-    r = a % b
-    a = b
-    b = r
+if prime(a,b):
+    print("互いに素である")
+else:
+    print("互いに素でない") 
 
-print(b)
-
-#(3)
-a = 91
-b = 14
-
-while a % b != 0: 
-    r = a % b
-    a = b
-    b = r
-
-print(b)
-
+#エクストラ問題
+pairs = [(random.randint(1,10000),random.randint(1,10000)) for _ in range(100000) ] # 10万組生成
+count = sum(1 for a,b in pairs if prime(a,b)) # Trueは1であるからsum関数によってaとbが互いに素な組の数が求まる
+print(count/100000) # 確率

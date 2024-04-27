@@ -1,39 +1,32 @@
-#n = int(input("nの値を入力: ")) 
+def judge_1(): # 入力した値の型の判定
+   
+    n = float(input("自然数nを入力:"))
+   
+    if n.is_integer() and n > 0: #nが自然数ならばnをint型にする
+        return int(n)
+   
+    else: #実数や負の数ならばエラーを出す
+        raise ValueError("自然数を入力してください")
 
-#(1)
-n = 61 
-prime = True #primeを用いてaが素数であると仮定する
 
-if n < 2:
-    print("素数でない")
+def prime_number(n): # 素数判定
+  
+    if n < 2:
+        return False
 
-else: #nが2以上の場合
+    
     for i in range(2, int(n**(1/2)+1)): #2以上√a以下(整数)で割り切れる値があるか調べる
         if n % i == 0:
-            prime = False
-            break
+            return False
+                
+    return True        
 
-    if prime: #True
-        print("素数である")
+n = judge_1()
 
-    else: #False
-        print("素数でない")  
+prime = prime_number(n)
 
-#(2)
-n = 10 
-prime = True #primeを用いてaが素数であると仮定する
+if prime:
+    print("素数である")
 
-if n < 2:
+else:
     print("素数でない")
-
-else: #nが2以上の場合
-    for i in range(2, int(n**(1/2)+1)): #2以上√a以下(整数)で割り切れる値があるか調べる
-        if n % i == 0:
-            prime = False
-            break
-
-    if prime: #True
-        print("素数である")
-
-    else: #False
-        print("素数でない")          
