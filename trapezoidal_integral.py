@@ -5,12 +5,12 @@ from math import exp
 
 def fun_1(x): # (2)の関数
     
-     return 4/1+x**2
+     return 4 / (1 + x**2)
 
 
 def fun_2(x): # (3)の関数
     
-    return sqrt(pi*exp(-x**2))
+    return sqrt(pi) * exp(-x**2)
 
 
 def integral(f, a=0, b=1, n=100): # 台形積分

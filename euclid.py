@@ -13,6 +13,8 @@ def prime(a, b):
    
     if euclid(a,b) == 1: # aとbの最大公約数が1
         return True
+    
+    return False
 
 a = int(input("a の値を入力: "))
 b = int(input("b の値を入力: "))
